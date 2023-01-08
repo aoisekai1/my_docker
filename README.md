@@ -19,9 +19,9 @@
 ##### Structure Setup Docker For Wordpress
 * [directory_project](./tree-md)
     * [src](./dir2)
-        * [app](./dir2)
-        * [bootsrap](./dir2)
-        * [config](./dir2)
-        * [lang](./dir2)
+        * [index.php](./dir2/index.php)
+        * [wp-admin](./dir2)
+        * [wp-content](./dir2)
+        * [wp-includes](./dir2)
     * [docker-compose.yml](./dir2/docker-compose.yml)
     * [php.dockerfile](./dir2/php.dockerfile)
