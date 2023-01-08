@@ -1,4 +1,11 @@
 # learn_setup_docker
+##### Quick Started
+###### Create Container
+1. docker-compose up -d --build
+
+###### Remove Container
+1. docker-compose down 
+
 ##### Structure Setup Docker For Laravel
 * [directory_project](./tree-md)
     * [src](./dir2)
