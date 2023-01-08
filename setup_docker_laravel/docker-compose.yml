@@ -1,0 +1,44 @@
+version: '3.7'
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+
+services:
+
+  web:
+    container_name: web_app
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    volumes:
+       - '$PWD/src:/var/www/html' # auto reload when changes code
+    ports: 
+      - 8085:8181
+    networks:
+      - app-network
+
+  mariadb:
+    container_name: mariadb
+    image: mariadb:10.8
+    restart: always
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    environment:
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 1
+    networks:
+      - app-network
+
+  phpmyadmin:
+    container_name: web_phpmyadmin
+    image: phpmyadmin:5.2
+    restart: always
+    ports:
+      - 8084:80
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - app-network
